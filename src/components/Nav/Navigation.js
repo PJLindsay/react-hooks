@@ -1,7 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-import './Navigation.css';
+import './Navigation.css'
 
 const Navigation = props => {
   return (
@@ -17,7 +17,7 @@ const Navigation = props => {
         </ul>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation
