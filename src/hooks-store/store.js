@@ -8,8 +8,12 @@ let actions = {}
 export const useStore = () => {
   const setState = useState(globalState)[1]
 
-  const dispatch = actionIdentifer => {
-    const newState = actions[actionIdentifer](globalState)
+  /**
+   * @param {*} actionIdentifer
+   * @param {*} payload Object | String | whatever you need
+   */
+  const dispatch = (actionIdentifer, payload)  => {
+    const newState = actions[actionIdentifer](globalState, payload)
     globalState = {...globalState, ...newState} // merge old and new state
 
     for (const listener of listeners) {
