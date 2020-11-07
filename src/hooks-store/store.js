@@ -1,11 +1,21 @@
 import { useState, useEffect } from 'react'
+import { ProductsContext } from '../context/products-context'
 
 let globalState = {}
 let listeners = []
 let actions = {}
 
-const useStore = () => {
+export const useStore = () => {
   const setState = useState(globalState)[1]
+
+  const dispatch = actionIdentifer => {
+    const newState = actions[actionIdentifer](globalState)
+    globalState = {...globalState, ...newState} // merge old and new state
+
+    for (const listener of listeners) {
+      listener(globalState)
+    }
+  }
 
   useEffect(() => {
     listeners.push(setState)
@@ -15,5 +25,14 @@ const useStore = () => {
       listeners = listeners.filter(li => li !== setState)
     }
 
-  }, []) // effect will run only when component mounts
+  }, [setState]) // effect will run only when component mounts
+
+  return [globalState, dispatch]
+}
+
+export const initStore = () => (userActions, initialState) => {
+  if (initialState) {
+    globalState = {...globalState, ...initialState}
+  }
+  actions = {...actions, ...userActions}
 }
