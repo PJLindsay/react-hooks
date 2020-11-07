@@ -11,6 +11,14 @@ refactor an app to replace Redux with react hooks
 
 ### Alternative: Context API
 
+- great for Authentication
+
+### When would you *not* want to use Context API
+
+- high frequency (e.g. toggling Favourites)
+
+### Alternative: Custom Hook as a Store
+
 
 
 ## Installation
