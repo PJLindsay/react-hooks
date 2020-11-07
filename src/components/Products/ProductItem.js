@@ -6,7 +6,8 @@ import './ProductItem.css'
 
 const ProductItem = React.memo(props => {
 
-  const dispatch = useStore()[1]
+  // note: shouldListen = false (favourite is handled by Products)
+  const dispatch = useStore(false)[1]
 
   const toggleFavHandler = () => {
     // toggleFav(props.id)
