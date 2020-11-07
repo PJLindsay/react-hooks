@@ -6,6 +6,10 @@ refactor an app to replace Redux with react hooks
 
 ### Why would you want to replace redux?
 
+- To stay in "React only" world
+- smaller bundle (ship less code)
+
+### Alternative: Context API
 
 
 
