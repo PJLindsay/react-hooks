@@ -19,7 +19,7 @@ refactor an app to replace Redux with react hooks
 
 ### Alternative: Custom Hook as a Store
 
-
+- use React.memo to make sure items don't re-render if props don't change
 
 ## Installation
 
